@@ -49,30 +49,7 @@ $di->setShared('db', function () {
         
     }
 	
-	
-	$di = \Phalcon\DI::getDefault();
-	
 	$wAdapter = new $class($params);
-	
-	
-    $params = [
-        'host'     => $config->database->hostOld,
-        'username' => $config->database->usernameOld,
-        'password' => $config->database->passwordOld,
-        'dbname'   => $config->database->dbnameOld,
-        'charset'  => $config->database->charset,
-        'pdoType'  => $config->database->pdoTypeOld,
-    ];
-
-	/* == == == == */
-
-    if ($config->database->adapter == 'Postgresql') {
-        
-        unset($params['charset']);
-        
-    }
-	
-	/* == == == == */
 	
     return $wAdapter;
     
